@@ -11,6 +11,9 @@ mongoose.connection.on('connected',() =>{
 })
 
 require("./models/Hotel")
+require("./models/Room")
+require("./models/CountHotel")
+require("./models/HotelCateory")
 
 // app.get("/",(req, res)=>{
 //  res.json({"data":"home"})
