@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const cors = require('cors');
+const cookieParser = require('cookie-parser')
 const path = require('path');
 const Port = process.env.PORT || 8000;
 require('dotenv').config()
@@ -14,12 +16,19 @@ require("./models/Hotel")
 require("./models/Room")
 require("./models/CountHotel")
 require("./models/HotelCateory")
+require("./models/User")
 
 // app.get("/",(req, res)=>{
 //  res.json({"data":"home"})
 //  })
 
+//middlewares
+app.use(cors());
+app.use(express.json());
+app.use(cookieParser())
+
 app.use(require("./routes/hotel"))
+app.use(require("./routes/auth"))
 app.use(express.json());
 
 

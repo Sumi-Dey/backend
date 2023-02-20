@@ -1,4 +1,5 @@
 const {getAllHotel,createCategory,createHotel,updateHotel,deleteHotel,getHotel,cityHotel,getByFeature,getByCategory,countByCity,getHotelRooms,createCity,updateCityCount,getAllCity,getAllCategoryCity} = require('../controllers/hotel');
+const {verifyAdmin} = require('../utlis/verifyToken');
 const express = require("express")
 const router = express.Router();
 
@@ -6,33 +7,33 @@ const router = express.Router();
 //UpdateCityCount
 router.put("/updateCityCount", updateCityCount)
 //CREATE
-router.post("/",createHotel)
+router.post("/hotel/createhotel",verifyAdmin,createHotel)
 //UPDATE
-router.put("/:id",updateHotel)
+router.put("/hotel/:id",verifyAdmin,updateHotel)
 //DELETE
-router.delete("/:id", deleteHotel)
+router.delete("/hotel/:id",verifyAdmin, deleteHotel)
 //GET
-router.get("/find/:id", getHotel)
+router.get("/hotel/find/:id", getHotel)
 //GET
-router.get("/cityhotel/:id", cityHotel)
+router.get("/hotel/cityhotel/:id", cityHotel)
 //GET ALL
 router.get("/", getAllHotel);
 //GetByCity
-router.get("/getByFeature",getByFeature)
+router.get("/hotel/getByFeature",getByFeature)
 //GetByCategory
-router.get("/getByCategory",getByCategory)
+router.get("/hotel/getByCategory",getByCategory)
 //CountByCity
-router.get("/countByCity", countByCity)
+router.get("/hotel/countByCity", countByCity)
 //CreateCity
-router.post("/createCity", createCity)
+router.post("/hotel/createCity", createCity)
 //GetAllCity
-router.get("/getAllCity",getAllCity)
+router.get("/hotel/getAllCity",getAllCity)
 //getRoom
-router.get("/room/:id", getHotelRooms)
+router.get("/hotel/room/:id", getHotelRooms)
 //CreateCat
-router.post("/createCategory", createCategory)
+router.post("/hotel/createCategory", createCategory)
 //GetAllCat
-router.get("/getAllCategoryCity",getAllCategoryCity)
+router.get("/hotel/getAllCategoryCity",getAllCategoryCity)
 
 
 
