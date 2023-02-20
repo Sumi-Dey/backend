@@ -27,7 +27,7 @@ router.get("/hotel/countByCity", countByCity)
 //CreateCity
 router.post("/hotel/createCity", createCity)
 //GetAllCity
-router.get("/hotel/getAllCity",getAllCity)
+router.get("/getAllCity",getAllCity)
 //getRoom
 router.get("/hotel/room/:id", getHotelRooms)
 //CreateCat
