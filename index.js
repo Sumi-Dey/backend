@@ -29,6 +29,8 @@ app.use(cookieParser())
 
 app.use(require("./routes/hotel"))
 app.use(require("./routes/auth"))
+app.use(require("./routes/user"))
+app.use(require("./routes/room"))
 app.use(express.json());
 
 

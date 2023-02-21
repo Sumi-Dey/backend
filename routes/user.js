@@ -11,6 +11,6 @@ router.delete("/user/:id", verifyUser,deleteUser)
 //GET
 router.get("/user/:id",verifyUser, getUser)
 //GET ALL
-router.get("/user/getAllUser", verifyAdmin ,getAllUser)
+router.get("/getusers", verifyAdmin ,getAllUser)
 
 module.exports = router
