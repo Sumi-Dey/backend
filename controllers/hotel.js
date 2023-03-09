@@ -67,6 +67,17 @@ const getAllHotel = async (req, res, next) => {
         next(error)
     }
 }
+const getHotelByFilter = async (req, res, next) => {
+    const { min, max, limit, ...others } = req.query
+    try {
+        const Hotels = await Hotel.find({ ...others, cheapestPrice: { $gt: min || 1, $lt: max || 9999999 } }).limit(limit);
+        res.status(200).json(Hotels)
+
+
+    } catch (error) {
+        next(error)
+    }
+}
 const getByFeature = async (req, res, next) => {
     const { feature, limit } = req.query
     try {
@@ -167,4 +178,4 @@ const getAllCategoryCity = async (req, res, next) => {
 
 
 
-module.exports = {getAllHotel,createHotel,updateHotel,deleteHotel,getHotel,cityHotel,getByFeature,getByCategory,countByCity,getHotelRooms,createCity,updateCityCount,getAllCity,getAllCategoryCity,createCategory}
+module.exports = {getAllHotel,createHotel,updateHotel,deleteHotel,getHotel,cityHotel,getByFeature,getByCategory,countByCity,getHotelRooms,createCity,updateCityCount,getAllCity,getAllCategoryCity,createCategory,getHotelByFilter}

@@ -1,4 +1,4 @@
-const {getAllHotel,createCategory,createHotel,updateHotel,deleteHotel,getHotel,cityHotel,getByFeature,getByCategory,countByCity,getHotelRooms,createCity,updateCityCount,getAllCity,getAllCategoryCity} = require('../controllers/hotel');
+const {getAllHotel,createCategory,createHotel,updateHotel,deleteHotel,getHotel,cityHotel,getByFeature,getByCategory,countByCity,getHotelRooms,createCity,updateCityCount,getAllCity,getAllCategoryCity,getHotelByFilter} = require('../controllers/hotel');
 const {verifyAdmin} = require('../utlis/verifyToken');
 const express = require("express")
 const router = express.Router();
@@ -18,6 +18,8 @@ router.get("/hotel/find/:id", getHotel)
 router.get("/hotel/cityhotel/:id", cityHotel)
 //GET ALL
 router.get("/", getAllHotel);
+//GET HOTEL BY FILTER
+router.get("/hotel/getHotelByFilter", getHotelByFilter);
 //GetByCity
 router.get("/hotel/getByFeature",getByFeature)
 //GetByCategory
